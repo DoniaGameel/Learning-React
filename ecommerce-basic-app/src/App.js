@@ -1,10 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
+//import logo from "./logo.svg";
+import Navbar from "./Components/Navbar";
+import Slider from "./Components/Slider";
 
 function App() {
   return (
     <div className="App">
-      <div className="container">Hello Bootstrap!</div>
+      <Navbar></Navbar>
+      <Slider></Slider>
     </div>
   );
 }
