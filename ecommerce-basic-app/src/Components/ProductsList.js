@@ -19,7 +19,7 @@ function ProductsList() {
           {products.map((product) => {
             return (
               <div className="col-3" key={product.id}>
-                <ProductCard product={product}></ProductCard>
+                <ProductCard product={product} showButton={true}></ProductCard>
               </div>
             );
           })}

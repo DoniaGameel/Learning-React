@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ProductCard(props) {
   return (
     <div className="card">
@@ -9,7 +11,14 @@ function ProductCard(props) {
       <div className="card-body">
         <h5 className="card-title">{props.product.title}</h5>
         <p className="card-text">{props.product.description}</p>
-        <button className="btn btn-primary">Details</button>
+        <p>Price: {props.product.price}$</p>
+        {props.showButton ? (
+          <Link className="btn btn-primary" to={`/product/${props.product.id}`}>
+            Details
+          </Link>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
