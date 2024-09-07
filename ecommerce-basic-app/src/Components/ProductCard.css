@@ -1,3 +1,46 @@
-.height-200{
-        height: 200;
+.card{
+        margin-top: 20px;
+        background-color: #f9eff6;
+}
+
+.card-full-screen{
+        width: 25%;
+        margin:auto;
+}
+
+.card-title{
+        height: 100px;
+}
+
+.card-img-top{
+        height: 300px;
+}
+
+.card-img-center{
+        height: 400px;
+        width: 100%;
+}
+
+.card-text{
+        height: 200px;
+        margin: 10px;
+        overflow-y: auto;
+}
+
+.btn-info{
+        background-color: #f79dda;
+        border-color: #f8e8f3;
+        border-radius: 200px;
+        width: 200px;
+        color: white;
+        font-weight: bold;
+}
+
+.btn-info:hover{
+        background-color: #f7bfe5;
+        border-color: #f8e8f3;
+        border-radius: 200px;
+        width: 220px;
+        color: white;
+        font-weight: bold;
 }

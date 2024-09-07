@@ -10,13 +10,13 @@ function Slider() {
             alt="..."
           />
         </div>
-        <div className="carousel-item">
+        {/* <div className="carousel-item">
           <img
             src="https://www.terawork.com/blog/wp-content/uploads/2022/11/ecommerce-mcommerce-featured-image-5fd09a3a5ff2a-1-1.png"
             className="d-block w-100 height-500"
             alt="..."
           />
-        </div>
+        </div> */}
         <div className="carousel-item">
           <img
             src="https://www.newgenapps.com/hubfs/Imported_Blog_Media/eCommerce-Website-Components-photo.jpg"

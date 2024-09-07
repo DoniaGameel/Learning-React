@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-
+import "./ProductCard.css";
 function ProductCard(props) {
   return (
-    <div className="card">
+    <div className={props.showButton ? "card" : "card card-full-screen"}>
       <img
         src={props.product.image}
-        className="card-img-top height-200"
+        className={props.showButton ? "card-img-top" : "card-img-center"}
         alt="..."
       />
+
       <div className="card-body">
         <h5 className="card-title">{props.product.title}</h5>
         <p className="card-text">{props.product.description}</p>

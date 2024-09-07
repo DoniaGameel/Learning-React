@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-
+import "./ProductList.css";
 function ProductsList() {
   const api_url = "https://fakestoreapi.com/products";
   // state
