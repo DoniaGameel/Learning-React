@@ -1,0 +1,25 @@
+.btn {
+  /* padding: 20px; */
+  margin: 10px;
+  width: 80px;
+  background-color: purple;
+  border-color: purple;
+  color: white;
+}
+
+.btn:hover {
+  /* padding: 20px; */
+  margin: 10px;
+  width: 80px;
+  background-color: rgb(118, 19, 118);
+  border-color: purple;
+  color: white;
+}
+
+.btn-success {
+  width: 200px;
+}
+
+.btn-success:hover {
+  width: 200px;
+}
