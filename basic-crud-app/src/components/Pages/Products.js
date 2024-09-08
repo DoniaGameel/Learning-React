@@ -2,12 +2,27 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Products.css";
 function Products() {
-  let [products, setProducts] = useState([]);
-  useEffect(() => {
+  let getAllProducts = () => {
     fetch("http://localhost:9000/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
+  };
+  let [products, setProducts] = useState([]);
+  useEffect(() => {
+    getAllProducts();
   }, []);
+
+  let deleteMethod = (productId) => {
+    fetch(`http://localhost:9000/products/${productId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        getAllProducts();
+      });
+  };
+
   return (
     <>
       <h1>Products Page</h1>
@@ -40,12 +55,14 @@ function Products() {
                     View
                   </Link>
                   <button className="btn btn-primary">Edit</button>
-                  <Link
-                    to={`products/${product.id}/delete`}
+                  <button
                     className="btn btn-danger delete-btn-in-table"
+                    onClick={() => {
+                      deleteMethod(product.id);
+                    }}
                   >
                     Delete
-                  </Link>
+                  </button>
                 </th>
               </tr>
             );

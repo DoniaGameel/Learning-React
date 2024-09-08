@@ -42,6 +42,8 @@
 .btn-danger:hover {
   background-color: rgb(152, 3, 3) !important;
   border-color: rgb(223, 0, 0) !important;
+  margin-left: 80%;
+  width: 20%;
 }
 
 .card-img-top {
