@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Products.css";
+import Swal from "sweetalert2";
 function Products() {
   let getAllProducts = () => {
     fetch("http://localhost:9000/products")
@@ -13,22 +14,36 @@ function Products() {
   }, []);
 
   let deleteMethod = (productId) => {
-    fetch(`http://localhost:9000/products/${productId}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        getAllProducts();
-      });
+    Swal.fire({
+      title: "Are you sure you want to delete this product?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "purple",
+      cancelButtonColor: "purple",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:9000/products/${productId}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            getAllProducts();
+          });
+        Swal.fire({
+          title: "Deleted!",
+          text: "The product has been deleted.",
+          icon: "success",
+          confirmButtonColor: "purple",
+        });
+      }
+    });
   };
 
   return (
     <>
-      <h1>Products Page</h1>
-      <Link to="/products/add" className="btn btn-success mt-3">
-        Add New Product
-      </Link>
+      <h1 className="text-center">Products Page</h1>
       <table className="table table-striped mt-5 ml-5 mr-5">
         <thead>
           <tr>
@@ -69,6 +84,9 @@ function Products() {
           })}
         </tbody>
       </table>
+      <Link to="/products/add" className="btn btn-success mt-3">
+        Add New Product
+      </Link>
     </>
   );
 }

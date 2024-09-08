@@ -1,17 +1,38 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 function ViewProduct() {
   let [isDeleted, setIsDeleted] = useState(false);
+  const navigate = useNavigate(); // Hook to programmatically navigate
 
   let deleteMethod = (productId) => {
-    fetch(`http://localhost:9000/products/${productId}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setIsDeleted(true);
-      });
+    Swal.fire({
+      title: "Are you sure you want to delete this product?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "purple",
+      cancelButtonColor: "purple",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:9000/products/${productId}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setIsDeleted(true);
+          });
+        Swal.fire({
+          title: "Deleted!",
+          text: "The product has been deleted.",
+          icon: "success",
+          confirmButtonColor: "purple",
+        });
+        navigate("/products");
+      }
+    });
   };
   // to get the product ID
   const params = useParams();
