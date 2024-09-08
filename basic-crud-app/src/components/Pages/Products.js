@@ -62,7 +62,8 @@ function Products() {
                 <td>{product.id}</td>
                 <td className="title-td">{product.title}</td>
                 <td className="description-td">
-                  {product.description.slice(0, 100)}...
+                  {product.description.slice(0, 100)}
+                  {product.description.length > 100 ? <>...</> : <></>}
                 </td>
                 <td>{product.price}$</td>
                 <th>
