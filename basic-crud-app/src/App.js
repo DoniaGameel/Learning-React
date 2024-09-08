@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import AddProduct from "./components/Pages/AddProduct";
 import Home from "./components/Pages/Home";
 import Products from "./components/Pages/Products";
+import ViewProduct from "./components/Pages/ViewProduct";
 import Sidebar from "./components/Sidebar";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -15,39 +16,17 @@ function App() {
           <div className="col-2 sidebar">
             <Sidebar></Sidebar>
           </div>
-
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <div className="col-10">
-                    <Home></Home>
-                  </div>
-                </>
-              }
-            />
-            <Route
-              path="/products"
-              element={
-                <>
-                  <div className="col-10">
-                    <Products></Products>
-                  </div>
-                </>
-              }
-            />
-            <Route
-              path="/products/add"
-              element={
-                <>
-                  <div className="col-10">
-                    <AddProduct></AddProduct>
-                  </div>
-                </>
-              }
-            />
-          </Routes>
+          <div className="col-10">
+            <Routes>
+              <Route path="/" element={<Home></Home>} />
+              <Route path="/products" element={<Products></Products>} />
+              <Route path="/products/add" element={<AddProduct></AddProduct>} />
+              <Route
+                path="/products/:productId"
+                element={<ViewProduct></ViewProduct>}
+              />
+            </Routes>
+          </div>
         </div>
       </Router>
     </div>

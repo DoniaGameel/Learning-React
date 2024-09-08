@@ -31,3 +31,37 @@
 .title-td {
   width: 350px !important;
 }
+
+.btn-danger {
+  background-color: red !important;
+  border-color: rgb(223, 0, 0) !important;
+  margin-left: 80%;
+  width: 20%;
+}
+
+.btn-danger:hover {
+  background-color: rgb(152, 3, 3) !important;
+  border-color: rgb(223, 0, 0) !important;
+}
+
+.card-img-top {
+  height: 50%;
+}
+
+.card {
+  background-color: #f8f9fa !important;
+  width: 50%;
+  margin: auto;
+}
+
+.card-text-unstyled {
+  color: purple !important;
+}
+
+.delete-btn-in-table {
+  margin-left: 100px;
+}
+
+.delete-btn-in-table:hover {
+  margin-left: 100px;
+}

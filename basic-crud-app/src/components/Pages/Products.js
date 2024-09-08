@@ -36,9 +36,16 @@ function Products() {
                 </td>
                 <td>{product.price}$</td>
                 <th>
-                  <button className="btn btn-danger">Delete</button>
-                  <button className="btn btn-info">View</button>
+                  <Link to={`/products/${product.id}`} className="btn btn-info">
+                    View
+                  </Link>
                   <button className="btn btn-primary">Edit</button>
+                  <Link
+                    to={`products/${product.id}/delete`}
+                    className="btn btn-danger delete-btn-in-table"
+                  >
+                    Delete
+                  </Link>
                 </th>
               </tr>
             );
