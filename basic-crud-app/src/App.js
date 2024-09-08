@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import AddProduct from "./components/Pages/AddProduct";
+import EditProduct from "./components/Pages/EditProduct";
 import Home from "./components/Pages/Home";
 import Products from "./components/Pages/Products";
 import ViewProduct from "./components/Pages/ViewProduct";
@@ -24,6 +25,10 @@ function App() {
               <Route
                 path="/products/:productId"
                 element={<ViewProduct></ViewProduct>}
+              />
+              <Route
+                path="/products/:productId/edit"
+                element={<EditProduct></EditProduct>}
               />
             </Routes>
           </div>

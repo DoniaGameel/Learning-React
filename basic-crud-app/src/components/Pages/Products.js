@@ -43,7 +43,9 @@ function Products() {
 
   return (
     <>
-      <h1 className="text-center">Products Page</h1>
+      <h1 className="text-center mt-5" style={{ color: "purple" }}>
+        Products Page
+      </h1>
       <table className="table table-striped mt-5 ml-5 mr-5">
         <thead>
           <tr>
@@ -70,7 +72,12 @@ function Products() {
                   <Link to={`/products/${product.id}`} className="btn btn-info">
                     View
                   </Link>
-                  <button className="btn btn-primary">Edit</button>
+                  <Link
+                    to={`/products/${product.id}/edit`}
+                    className="btn btn-primary"
+                  >
+                    Edit
+                  </Link>
                   <button
                     className="btn btn-danger delete-btn-in-table"
                     onClick={() => {

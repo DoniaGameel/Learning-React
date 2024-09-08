@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-function AddProduct() {
+function EditProduct() {
   const navigate = useNavigate(); // Hook to programmatically navigate
   // title data to be sent to the server
   let [title, setTitle] = useState("");
@@ -13,42 +13,44 @@ function AddProduct() {
   let [price, setPrice] = useState(0);
   // price data to be sent to the server
   let [imageURL, setImageURL] = useState("");
-
+  let params = useParams();
+  // get the product data to be edited
+  useEffect(() => {
+    fetch(`http://localhost:9000/products/${params.productId}`)
+      .then((res) => res.json())
+      .then((product) => {
+        setTitle(product.title);
+        setDescription(product.description);
+        setCategory(product.category);
+        setPrice(product.price);
+        setImageURL(product.image);
+      });
+  }, [params.productId]);
   return (
     <>
-      <h1>Add New Product</h1>
+      <h1>Edit Product</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          // get the id of the last product to increment it to get the current id
-          fetch("http://localhost:9000/products")
+          fetch(`http://localhost:9000/products/${params.productId}`, {
+            method: "PUT",
+            body: JSON.stringify({
+              title: title,
+              price: price,
+              description: description,
+              category: category,
+              image: imageURL,
+            }),
+          })
             .then((res) => res.json())
-            .then((products) => {
-              let lastProduct = products[products.length - 1];
-              let lastProductId = lastProduct.id;
-              let thisProductId = parseInt(lastProductId) + 1;
-              // send the data to the server
-              fetch("http://localhost:9000/products", {
-                method: "POST",
-                body: JSON.stringify({
-                  id: thisProductId.toString(),
-                  title: title,
-                  price: price,
-                  description: description,
-                  category: category,
-                  image: imageURL,
-                }),
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  console.log(data);
-                  Swal.fire({
-                    title: "Product is Added Successfully!",
-                    confirmButtonColor: "purple",
-                  }).then(() => {
-                    navigate("/products");
-                  });
-                });
+            .then((data) => {
+              console.log(data);
+              Swal.fire({
+                title: "Product is Edited Successfully!",
+                confirmButtonColor: "purple",
+              }).then(() => {
+                navigate("/products");
+              });
             });
         }}
       >
@@ -62,6 +64,7 @@ function AddProduct() {
             className="form-control"
             id="ptoductTitle"
             placeholder="Product Title"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
@@ -76,6 +79,7 @@ function AddProduct() {
             className="form-control"
             id="ptoductDescription"
             placeholder="Product Description"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
@@ -90,6 +94,7 @@ function AddProduct() {
             className="form-control"
             id="ptoductCategory"
             placeholder="Product Category"
+            value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
         </div>
@@ -104,6 +109,7 @@ function AddProduct() {
             className="form-control"
             id="ptoductPrice"
             placeholder="Enter Price in $"
+            value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
@@ -118,16 +124,16 @@ function AddProduct() {
             className="form-control"
             id="ptoductPrice"
             placeholder="Add image URL"
+            value={imageURL}
             onChange={(e) => setImageURL(e.target.value)}
           />
         </div>
 
         <button type="submit" className="btn btn-primary">
-          Add
+          Edit
         </button>
       </form>
     </>
   );
 }
-
-export default AddProduct;
+export default EditProduct;
