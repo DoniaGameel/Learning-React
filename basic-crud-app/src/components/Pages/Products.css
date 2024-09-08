@@ -1,19 +1,19 @@
 .btn {
+  background-color: purple !important;
+  border-color: purple !important;
   /* padding: 20px; */
   margin: 10px;
   width: 80px;
-  background-color: purple;
-  border-color: purple;
-  color: white;
+  color: white !important;
 }
 
 .btn:hover {
   /* padding: 20px; */
   margin: 10px;
   width: 80px;
-  background-color: rgb(118, 19, 118);
-  border-color: purple;
-  color: white;
+  background-color: rgb(118, 19, 118) !important;
+  border-color: purple !important;
+  color: white !important;
 }
 
 .btn-success {
@@ -22,4 +22,12 @@
 
 .btn-success:hover {
   width: 200px;
+}
+
+.description-td {
+  width: 350px !important;
+}
+
+.title-td {
+  width: 350px !important;
 }
