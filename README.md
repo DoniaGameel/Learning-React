@@ -12,3 +12,6 @@ This is done using Json-server
 
 ## Booklist:
 Basic App using Hoooks with Context API for state management
+
+## Booklist-using-reducers:
+Booklist app using reducers and actions
