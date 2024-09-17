@@ -1,0 +1,18 @@
+- React is a library
+- npm ==> node package manager
+- App is a component
+- JSX: JavaScript HTML
+- we can start and end with <> </> ==> fragment to avoid using useless div
+- JSX is fr simplicity, but we can use JS
+- props ==> to make the component reusable
+- simplest way to create a component ==> JS function
+- we must start the component with uppercase letter so react know it's a component not an HTML tag
+- props are read-only
+- function is stateless component while class is stateful component
+- satates are merged
+- what applies on JSX applies on components
+- effects are side effects on my component
+- By default useEffect runs after first render and after every update
+- to execute something while unmounting ==> add it in the return of useEffect
+- <></> is shorthand syntax for <React.fragment></React.fragment>
+- Thus, href="/#" creates a link that, when clicked, takes the user to the top of the homepage or the current page (if already on the homepage).

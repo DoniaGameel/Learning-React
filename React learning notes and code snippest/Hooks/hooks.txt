@@ -1,0 +1,8 @@
+useCallback has same uses as useMemo but in useCallback we can pass parameters to the function
+
+useLayoutEffect is same as useEffect but we use it when we are handling something related to the DOM which is faster
+
+useImperativeHandle ==> when you need to do access multiple elements inside a component from outside the component
+
+otimistic update hook: experimental_useOptimistic
+https://youtu.be/M3mGY0pgFk0?si=njFnajwMTNwX_lxB

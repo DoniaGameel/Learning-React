@@ -1,0 +1,9 @@
+.products-list{
+        width: 85%;
+        margin: auto;
+}
+
+.row{
+        display: flex;
+        flex-wrap: wrap;
+}
