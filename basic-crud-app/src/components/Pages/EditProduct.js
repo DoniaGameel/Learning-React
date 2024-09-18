@@ -24,15 +24,25 @@ function EditProduct() {
         setCategory(product.category);
         setPrice(product.price);
         setImageURL(product.image);
-      });
+      })
+      .catch((error) => {
+      //Add error handling , this ensures users are informed if something goes wrong during the fetch
+  console.error("Error fetching product:", error);
+  Swal.fire({
+    title: "Error!",
+    text: "Could not fetch product data.",
+    icon: "error",
+  });
+});
   }, [params.productId]);
   return (
     <>
       <h1>Edit Product</h1>
       <form
+      // better to add handle submit function
         onSubmit={(e) => {
           e.preventDefault();
-          fetch(`http://localhost:9000/products/${params.productId}`, {
+          fetch(`http://localhost:3000/products/${params.productId}`, {
             method: "PUT",
             body: JSON.stringify({
               title: title,
@@ -51,7 +61,15 @@ function EditProduct() {
               }).then(() => {
                 navigate("/products");
               });
-            });
+            }).catch((error) => {
+              //Add error handling , this ensures users are informed if something goes wrong during the fetch
+          console.error("Error fetching product:", error);
+          Swal.fire({
+            title: "Error!",
+            text: "Could not fetch product data.",
+            icon: "error",
+          });
+        });;
         }}
       >
         <div className="mb-3 w-75">
