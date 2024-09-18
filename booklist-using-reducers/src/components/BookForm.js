@@ -5,14 +5,16 @@ const NewBookForm = () => {
   let { dispatch } = useContext(BookContext);
   const [author, setAutor] = useState("");
   const [title, setTitle] = useState("");
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  dispatch({ type: "ADD_BOOK", book: { title, author } });
+  setTitle("");
+  setAuthor("");
+};
+  
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        dispatch({ type: "ADD_BOOK", book: { title, author } });
-        setTitle("");
-        setAutor("");
-      }}
+      onSubmit={handleSubmit}
     >
       <input
         required
