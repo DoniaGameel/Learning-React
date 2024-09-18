@@ -32,7 +32,15 @@ function ViewProduct() {
         });
         navigate("/products");
       }
-    });
+    }).catch((error) => {
+      //Add error handling , this ensures users are informed if something goes wrong during the fetch
+  console.error("Error fetching product:", error);
+  Swal.fire({
+    title: "Error!",
+    text: "Could not fetch product data.",
+    icon: "error",
+  });
+});
   };
   // to get the product ID
   const params = useParams();
@@ -43,7 +51,15 @@ function ViewProduct() {
       .then((res) => res.json())
       .then((product) => {
         setProduct(product);
-      });
+      }) .catch((error) => {
+        //Add error handling , this ensures users are informed if something goes wrong during the fetch
+    console.error("Error fetching product:", error);
+    Swal.fire({
+      title: "Error!",
+      text: "Could not fetch product data.",
+      icon: "error",
+    });
+  });;
   }, [params.productId]);
   return (
     <>

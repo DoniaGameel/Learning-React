@@ -57,7 +57,7 @@ function AddProduct() {
             Product title
           </label>
           <input
-            required="required"
+            required
             type="text"
             className="form-control"
             id="ptoductTitle"
@@ -71,7 +71,7 @@ function AddProduct() {
             Product Description
           </label>
           <input
-            required="required"
+            required
             type="text"
             className="form-control"
             id="ptoductDescription"
@@ -85,7 +85,7 @@ function AddProduct() {
             Product Category
           </label>
           <input
-            required="required"
+            required
             type="text"
             className="form-control"
             id="ptoductCategory"
@@ -99,7 +99,7 @@ function AddProduct() {
             Product Price
           </label>
           <input
-            required="required"
+            required
             type="number"
             className="form-control"
             id="ptoductPrice"
@@ -113,7 +113,7 @@ function AddProduct() {
             Product Image
           </label>
           <input
-            required="required"
+            required
             type="url"
             className="form-control"
             id="ptoductPrice"

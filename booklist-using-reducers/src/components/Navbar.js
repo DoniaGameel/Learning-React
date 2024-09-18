@@ -6,7 +6,12 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <h1>Reading list</h1>
-      <p>Currently you have {books.length} books to get through...</p>
+      //Added conditional rendering for an empty state message.
+      <p>
+        {books.length > 0
+          ? `Currently you have ${books.length} books to get through...`
+          : "You have no books in your reading list."}
+      </p>
     </div>
   );
 };
